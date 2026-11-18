@@ -1,0 +1,27 @@
+#Bir taksi uygulaması yolculuk bitince fiş yazdırıyor:
+
+#Açılış ücreti 45 TL, kilometre başına 32.5 TL.
+#Gece tarifesi (saat 23:00-05:59): toplam ücrete %50 eklenir.
+#Ödenecek tutar en az 150 TL'dir (kısa mesafe ücreti).
+#Fişte yolcunun adı düzgün yazılır.
+
+ad = input("adınızı giriniz: ").strip().title()
+km = float(input("kaç km yol gidiceksiniz: "))
+saat = int(input("Saat kaç (0-24): "))
+
+fiyat = km * 32.5 + 45
+
+if  fiyat < 150:
+    fiyat = 150
+else:
+    if saat >= 23 or saat < 6:
+        fiyat = fiyat * 1.5
+print("=" * 28)
+print(f"{"Yolcu":<12}{ad:>16}")
+print(f"{"Mesafe":<12}{km:>16.2f}")
+print(f"{"Zaman":<12}{saat:>16.02f}")
+print("-" * 28)
+print(f"{"Tutar":<12}{fiyat:>16}")
+print("=" * 28)
+
+
